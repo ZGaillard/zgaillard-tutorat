@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tuteur maths et informatique à Montréal | Zakary Gaillard-Duchassin</title>
+  <meta name="description" content="Tutorat en maths et en informatique à Montréal, du secondaire à l'université : programmation, calcul, algèbre linéaire, statistiques, maths de secondaire et initiation au code pour les 8–14 ans. En personne ou en ligne. Première rencontre de 15 min gratuite.">
+  <meta name="keywords" content="tuteur Montréal, tutorat informatique, cours de maths cégep, aide aux devoirs programmation, tuteur maths secondaire, tutorat Java Python, préparation examen ministère, cours de programmation enfants, tutor Montreal, math tutor Montreal">
+  <meta name="author" content="Zakary Gaillard-Duchassin">
+  <meta name="theme-color" content="#000059" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d0f1f" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://zgaillard.github.io/zgaillard-tutorat/">
+  <link rel="alternate" hreflang="fr-CA" href="https://zgaillard.github.io/zgaillard-tutorat/">
+  <link rel="alternate" hreflang="en-CA" href="https://zgaillard.github.io/zgaillard-tutorat/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://zgaillard.github.io/zgaillard-tutorat/">
+
+  <!-- Open Graph (Facebook, Messenger, WhatsApp…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zakary Gaillard-Duchassin — Tutorat">
+  <meta property="og:title" content="Tutorat en maths et en informatique à Montréal">
+  <meta property="og:description" content="Du secondaire à l'université, en personne ou en ligne. Auxiliaire d'enseignement à l'UdeM. Première rencontre de 15 min gratuite.">
+  <meta property="og:url" content="https://zgaillard.github.io/zgaillard-tutorat/">
+  <meta property="og:image" content="https://zgaillard.github.io/zgaillard-tutorat/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Zakary Gaillard-Duchassin — Tutorat maths et informatique à Montréal">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:locale:alternate" content="en_CA">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tutorat en maths et en informatique à Montréal">
+  <meta name="twitter:description" content="Du secondaire à l'université, en personne ou en ligne. Première rencontre de 15 min gratuite.">
+  <meta name="twitter:image" content="https://zgaillard.github.io/zgaillard-tutorat/assets/og-image.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Icon sprite (inline SVG, no library) -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5L2 9z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5z"/><path d="M4 19a2 2 0 012-2h13"/><path d="M9 7h6"/></symbol>
+      <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8 6.5h8v3H8z"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 17h.01M12 17h.01M15.5 17h.01"/></symbol>
+      <symbol id="i-game" viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 014 4v1a4 4 0 01-7 2.6L14 15h-4l-1 .6A4 4 0 012 13v-1a4 4 0 014-4z"/><path d="M7 11v3M5.5 12.5h3"/><path d="M16 11.5h.01M18 13.5h.01"/></symbol>
+      <symbol id="i-video" viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><path d="M16 4.6a3.5 3.5 0 010 6.8M18 14a6.5 6.5 0 013.5 6"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10v-6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+      <symbol id="i-cal-x" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M10 13l4 4M14 13l-4 4"/></symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h13v4"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16.5 13.5h.01"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="4.5" width="16" height="11" rx="1.5"/><path d="M2 19.5h20"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12l1-8z"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
+
+  <!-- 1. Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Zakary Gaillard-Duchassin — Tutorat">
+        <span class="brand-mark" aria-hidden="true">ZGD</span>
+        <span class="brand-text">
+          <span class="brand-name"><span>Zakary</span> <span>Gaillard-Duchassin</span></span>
+          <span class="brand-sub" data-i18n="brand.sub">Tutorat maths &amp; informatique</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale" data-i18n-attr="aria-label:nav.label">
+        <ul>
+          <li><a href="#a-propos" data-i18n="nav.about">À propos</a></li>
+          <li><a href="#matieres" data-i18n="nav.subjects">Matières</a></li>
+          <li><a href="#tarifs" data-i18n="nav.prices">Tarifs</a></li>
+          <li><a href="#fonctionnement" data-i18n="nav.rules">Fonctionnement</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-toggle" role="group" aria-label="Langue / Language">
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true" lang="fr"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></button>
+        </div>
+        <a class="btn btn-primary btn-sm header-cta" href="#reserver" data-i18n="cta.bookShort">Réserver une rencontre gratuite</a>
+        <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu" data-i18n-attr="aria-label:nav.menu">
+          <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 2. Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Montréal · en personne ou en ligne</p>
+        <h1 id="hero-title" data-i18n="hero.title">Tutorat en maths et en informatique à Montréal, du secondaire à l'université</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Des explications claires, étape par étape, pour vraiment comprendre la matière et arriver confiant à l'examen. Aussi : initiation au code pour les 8–14 ans.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg" href="#reserver" data-i18n="cta.bookLong">Réserver une rencontre gratuite de 15 min</a>
+          <a class="btn btn-ghost btn-lg" href="#tarifs" data-i18n="cta.prices">Voir les tarifs</a>
+        </div>
+        <ul class="badges">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="badge.years">5+ ans d'enseignement</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg><span data-i18n="badge.ta">Auxiliaire d'enseignement à l'UdeM</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><span data-i18n="badge.gpa">Moyenne 3,89/4,3</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. About -->
+    <section class="section" id="a-propos" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about-photo">
+          <!-- Remplacer par votre photo : assets/photo.jpg (format portrait 4:5, ~800×1000 px) -->
+          <img src="assets/photo-placeholder.svg" width="400" height="500" alt="Photo de Zakary Gaillard-Duchassin" data-i18n-attr="alt:about.photoAlt" loading="lazy" decoding="async">
+        </div>
+        <div class="about-text">
+          <p class="eyebrow" data-i18n="about.eyebrow">À propos</p>
+          <h2 id="about-title" data-i18n="about.title">Bonjour, je m'appelle Zakary.</h2>
+          <p data-i18n="about.p1">Je suis diplômé du baccalauréat spécialisé en informatique de l'Université de Montréal, avec une <strong>moyenne cumulative de 3,89/4,3</strong> et la mention d'excellence à 7 trimestres sur 8. Je poursuis maintenant des cours de cycles supérieurs en recherche opérationnelle.</p>
+          <p data-i18n="about.p2">J'enseigne depuis 2019 : tuteur au Cégep du Vieux-Montréal, animateur en conception de jeux vidéo chez StudioXP auprès des 8 à 18 ans, et auxiliaire d'enseignement à l'UdeM.</p>
+          <p data-i18n="about.p3">Ma façon d'enseigner : je suis patient, j'explique étape par étape et je m'adapte au niveau de chaque élève. Je mise sur la compréhension plutôt que sur le par cœur, pour que l'élève arrive confiant à l'examen.</p>
+
+          <ul class="facts">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg><span data-i18n="about.f1"><strong>B. Sc. spécialisé en informatique</strong>, Université de Montréal (2021–2025) : A+ en algorithmique, structures de données, optimisation linéaire, génie logiciel et bases de données.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="about.f2"><strong>Cycles supérieurs en recherche opérationnelle</strong>, UdeM (2025–2026) : A en méthodes de recherche opérationnelle et en programmation en nombres entiers.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><span data-i18n="about.f3"><strong>Auxiliaire d'enseignement à l'UdeM</strong> : IFT1025 Programmation 2 (Java, automne 2025) et IFT2015 Structures de données (hiver 2026).</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-calc"/></svg><span data-i18n="about.f4"><strong>Tuteur au Cégep du Vieux-Montréal</strong> (2019–2020) : calcul différentiel et biologie cellulaire.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-game"/></svg><span data-i18n="about.f5"><strong>Animateur en conception de jeux vidéo chez StudioXP</strong> (depuis 2022), auprès des jeunes de 8 à 18 ans.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-laptop"/></svg><span data-i18n="about.f6">Développeur full-stack (React/Java) d'une plateforme web de recherche, coauteur d'un article dans <em>Genome Biology</em> (2026) et récipiendaire d'une bourse de recherche du CRSNG (2025).</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="about.f7">Bilingue français et anglais, espagnol conversationnel.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. What I teach -->
+    <section class="section section-alt" id="matieres" aria-labelledby="subjects-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="subjects.eyebrow">Matières</p>
+          <h2 id="subjects-title" data-i18n="subjects.title">Ce que j'enseigne</h2>
+        </div>
+        <div class="cards cards-4">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-cap"/></svg></div>
+            <h3 data-i18n="subjects.uni.title">Université</h3>
+            <ul class="ticks">
+              <li data-i18n="subjects.uni.1">Programmation (Java, Python)</li>
+              <li data-i18n="subjects.uni.2">Programmation orientée objet</li>
+              <li data-i18n="subjects.uni.3">Structures de données</li>
+              <li data-i18n="subjects.uni.4">Algorithmique</li>
+              <li data-i18n="subjects.uni.5">Bases de données (SQL)</li>
+              <li data-i18n="subjects.uni.6">Introduction à la recherche opérationnelle et à l'optimisation linéaire</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-book"/></svg></div>
+            <h3 data-i18n="subjects.cegep.title">Cégep</h3>
+            <ul class="ticks">
+              <li data-i18n="subjects.cegep.1">Cours de programmation</li>
+              <li data-i18n="subjects.cegep.2">Calcul différentiel et intégral (Calcul I et II)</li>
+              <li data-i18n="subjects.cegep.3">Algèbre linéaire</li>
+              <li data-i18n="subjects.cegep.4">Statistiques et probabilités</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-calc"/></svg></div>
+            <h3 data-i18n="subjects.hs.title">Secondaire (3 à 5)</h3>
+            <ul class="ticks">
+              <li data-i18n="subjects.hs.1">Mathématiques CST, TS et SN</li>
+              <li data-i18n="subjects.hs.2">Préparation aux examens du ministère</li>
+              <li data-i18n="subjects.hs.3">Méthodes d'étude</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-game"/></svg></div>
+            <h3 data-i18n="subjects.kids.title">Jeunes de 8 à 14 ans</h3>
+            <ul class="ticks">
+              <li data-i18n="subjects.kids.1">Initiation au code (Scratch, Python pour débutants)</li>
+              <li data-i18n="subjects.kids.2">Conception de jeux vidéo et logique</li>
+              <li data-i18n="subjects.kids.3">Une approche ludique, par projets</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. How it works -->
+    <section class="section" id="deroulement" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="steps.eyebrow">Déroulement</p>
+          <h2 id="steps-title" data-i18n="steps.title">Comment ça marche</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <div>
+              <h3 data-i18n="steps.1.title">Rencontre gratuite de 15 min</h3>
+              <p data-i18n="steps.1.text">Un court appel vidéo pour comprendre vos besoins, le cours et vos objectifs. Sans engagement.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <div>
+              <h3 data-i18n="steps.2.title">Première séance</h3>
+              <p data-i18n="steps.2.text">En personne ou en ligne, selon ce qui vous convient le mieux.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <div>
+              <h3 data-i18n="steps.3.title">Suivi régulier</h3>
+              <p data-i18n="steps.3.text">Des séances régulières et, avec les forfaits, des questions par message entre les séances.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. Prices -->
+    <section class="section section-alt" id="tarifs" aria-labelledby="prices-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="prices.eyebrow">Tarifs</p>
+          <h2 id="prices-title" data-i18n="prices.title">Des tarifs simples et transparents</h2>
+          <p class="free-note"><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg><span data-i18n="prices.free"><strong>Première rencontre gratuite</strong> : 15 minutes par appel vidéo.</span></p>
+        </div>
+
+        <h3 class="sub-title" data-i18n="prices.sessionTitle">Séance à l'unité</h3>
+        <div class="table-wrap">
+          <table class="price-table">
+            <caption class="sr-only" data-i18n="prices.caption">Tarifs par séance, en personne et en ligne</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="prices.colLevel">Niveau</th>
+                <th scope="col"><span data-i18n="prices.colInPerson">En personne</span> <span class="th-note" data-i18n="prices.colInPersonDur">(2 h)</span></th>
+                <th scope="col"><span data-i18n="prices.colOnline">En ligne</span> <span class="th-note" data-i18n="prices.colOnlineDur">(1 h)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-i18n="prices.rowUni">Université et cégep</th>
+                <td><strong data-price="session.uniInPerson">100 $</strong> <span class="muted" data-i18n="prices.uniHourly">(<span data-price="session.uniHourly">50 $</span>/h)</span></td>
+                <td><strong data-price="session.uniOnline">45 $</strong></td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="prices.rowHs">Secondaire</th>
+                <td><strong data-price="session.hsInPerson">80 $</strong> <span class="muted" data-i18n="prices.hsHourly">(<span data-price="session.hsHourly">40 $</span>/h)</span></td>
+                <td><strong data-price="session.hsOnline">35 $</strong></td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="prices.rowKids">Jeunes de 8 à 14 ans</th>
+                <td><strong data-price="session.kidsInPerson">80 $</strong> <span class="muted" data-i18n="prices.kidsShort">(ou <span data-price="session.kidsShort">60 $</span> pour 1 h 30)</span></td>
+                <td><strong data-price="session.kidsOnline">35 $</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="format-notes">
+          <div class="format-note">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <p data-i18n="prices.inPersonNote"><strong>En personne (2 h, ou 1 h 30 pour les jeunes)</strong> : chez l'élève ou dans un lieu public à Montréal (bibliothèque, café). Aucuns frais de déplacement à moins de 45 minutes en transport en commun de la station Préfontaine. Plus loin ? Écrivez-moi.</p>
+          </div>
+          <div class="format-note">
+            <svg class="icon" aria-hidden="true"><use href="#i-laptop"/></svg>
+            <p data-i18n="prices.onlineNote"><strong>En ligne (1 h)</strong> : sur Zoom ou Google Meet, avec partage d'écran et tableau blanc.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title" data-i18n="prices.packagesTitle">Forfaits d'accompagnement mensuel</h3>
+        <p class="sub-lead" data-i18n="prices.packagesLead">Séances en personne de 2 h, avec les questions par message entre les séances incluses.</p>
+        <div class="cards cards-3 packages">
+          <article class="card package package-featured" aria-labelledby="pkg-essentiel">
+            <span class="ribbon" data-i18n="prices.popular">Le plus populaire</span>
+            <h4 id="pkg-essentiel" class="package-name">Essentiel</h4>
+            <p class="package-desc" data-i18n="prices.essentielDesc">2 séances en personne (2 × 2 h) + questions par message</p>
+            <dl class="package-prices">
+              <div>
+                <dt data-i18n="prices.lvlUni">Université et cégep</dt>
+                <dd><strong data-price="essentiel.uni">185 $</strong><span class="per" data-i18n="prices.perMonth">/mois</span> <s class="muted"><span class="sr-only" data-i18n="prices.insteadOf">au lieu de</span> <span data-price="essentiel.uniRegular">200 $</span></s></dd>
+              </div>
+              <div>
+                <dt data-i18n="prices.lvlHsKids">Secondaire et jeunes</dt>
+                <dd><strong data-price="essentiel.hs">145 $</strong><span class="per" data-i18n="prices.perMonth">/mois</span> <s class="muted"><span class="sr-only" data-i18n="prices.insteadOf">au lieu de</span> <span data-price="essentiel.hsRegular">160 $</span></s></dd>
+              </div>
+            </dl>
+            <a class="btn btn-primary btn-block" href="#reserver" data-i18n="cta.start">Commencer par la rencontre gratuite</a>
+          </article>
+
+          <article class="card package" aria-labelledby="pkg-intensif">
+            <h4 id="pkg-intensif" class="package-name">Intensif</h4>
+            <p class="package-desc" data-i18n="prices.intensifDesc">4 séances en personne (4 × 2 h) + questions par message</p>
+            <dl class="package-prices">
+              <div>
+                <dt data-i18n="prices.lvlUni">Université et cégep</dt>
+                <dd><strong data-price="intensif.uni">360 $</strong><span class="per" data-i18n="prices.perMonth">/mois</span> <s class="muted"><span class="sr-only" data-i18n="prices.insteadOf">au lieu de</span> <span data-price="intensif.uniRegular">400 $</span></s></dd>
+              </div>
+              <div>
+                <dt data-i18n="prices.lvlHsKids">Secondaire et jeunes</dt>
+                <dd><strong data-price="intensif.hs">290 $</strong><span class="per" data-i18n="prices.perMonth">/mois</span> <s class="muted"><span class="sr-only" data-i18n="prices.insteadOf">au lieu de</span> <span data-price="intensif.hsRegular">320 $</span></s></dd>
+              </div>
+            </dl>
+            <a class="btn btn-ghost btn-block" href="#reserver" data-i18n="cta.start">Commencer par la rencontre gratuite</a>
+          </article>
+
+          <article class="card package" aria-labelledby="pkg-exam">
+            <span class="ribbon ribbon-soft"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="prices.examTag">Avant un examen</span></span>
+            <h4 id="pkg-exam" class="package-name" data-i18n="prices.examName">Forfait examen</h4>
+            <p class="package-desc" data-i18n="prices.examDesc">2 séances en personne de 2 h en 2 semaines + questions prioritaires (réponse en 12 h) jusqu'à l'examen</p>
+            <dl class="package-prices">
+              <div>
+                <dt data-i18n="prices.lvlUni">Université et cégep</dt>
+                <dd><strong data-price="exam.uni">185 $</strong> <s class="muted"><span class="sr-only" data-i18n="prices.insteadOf">au lieu de</span> <span data-price="exam.uniRegular">200 $</span></s></dd>
+              </div>
+              <div>
+                <dt data-i18n="prices.lvlHsKids">Secondaire et jeunes</dt>
+                <dd><strong data-price="exam.hs">145 $</strong> <s class="muted"><span class="sr-only" data-i18n="prices.insteadOf">au lieu de</span> <span data-price="exam.hsRegular">160 $</span></s></dd>
+              </div>
+            </dl>
+            <a class="btn btn-ghost btn-block" href="#reserver" data-i18n="cta.start">Commencer par la rencontre gratuite</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Rules -->
+    <section class="section" id="fonctionnement" aria-labelledby="rules-title">
+      <div class="container">
+        <div class="rules-box">
+          <h2 id="rules-title" data-i18n="rules.title">Fonctionnement</h2>
+          <div class="rules">
+            <div class="rule">
+              <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+              <div>
+                <h3 data-i18n="rules.q.title">Questions entre les séances</h3>
+                <p data-i18n="rules.q.text">Incluses dans les forfaits. De courtes questions par texto, WhatsApp ou Discord (photo d'un exercice, un bogue, une notion). Réponse <strong>en moins de 24 h, entre 9 h et 21 h</strong> (12 h avec le forfait examen). Les questions plus longues sont reportées à la prochaine séance.</p>
+              </div>
+            </div>
+            <div class="rule">
+              <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+              <div>
+                <h3 data-i18n="rules.integrity.title">Intégrité académique</h3>
+                <p data-i18n="rules.integrity.text">J'explique et je guide, mais je ne fais pas les travaux notés à votre place.</p>
+              </div>
+            </div>
+            <div class="rule">
+              <svg class="icon" aria-hidden="true"><use href="#i-cal-x"/></svg>
+              <div>
+                <h3 data-i18n="rules.cancel.title">Annulation</h3>
+                <p data-i18n="rules.cancel.text">Merci de me prévenir au moins 24 h à l'avance. Sinon, la séance est facturée.</p>
+              </div>
+            </div>
+            <div class="rule">
+              <svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg>
+              <div>
+                <h3 data-i18n="rules.pay.title">Paiement</h3>
+                <p data-i18n="rules.pay.text">Par virement Interac. Les forfaits se paient au début du mois, les séances à l'unité après chaque séance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Booking -->
+    <section class="section section-alt" id="reserver" aria-labelledby="book-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="book.eyebrow">Réservation</p>
+          <h2 id="book-title" data-i18n="book.title">Réservez votre rencontre gratuite de 15 minutes</h2>
+          <p data-i18n="book.lead">Choisissez un moment qui vous convient. On en profite pour parler de vos besoins et voir si je suis la bonne personne pour vous aider.</p>
+        </div>
+        <!-- Lien Cal.com : remplacer YOUR-USERNAME/rencontre-15min partout dans ce fichier -->
+        <div class="cal-wrap">
+          <div id="cal-inline" class="cal-inline" data-cal-link="YOUR-USERNAME/rencontre-15min">
+            <p class="cal-loading" data-i18n="book.loading">Chargement du calendrier…</p>
+          </div>
+          <div class="cal-fallback" id="cal-fallback" hidden>
+            <p data-i18n="book.fallbackError">Le calendrier n'a pas pu s'afficher ici.</p>
+            <a class="btn btn-primary" href="https://cal.com/YOUR-USERNAME/rencontre-15min" target="_blank" rel="noopener" data-i18n="book.fallbackBtn">Ouvrir la page de réservation</a>
+          </div>
+        </div>
+        <p class="cal-alt">
+          <span data-i18n="book.altText">Le calendrier ne s'affiche pas ?</span>
+          <a href="https://cal.com/YOUR-USERNAME/rencontre-15min" target="_blank" rel="noopener" data-i18n="book.altLink">Réserver directement sur Cal.com</a>
+          <span data-i18n="book.altOr">ou</span>
+          <a href="#contact" data-i18n="book.altContact">écrivez-moi</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 9. Contact -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact-intro">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 id="contact-title" data-i18n="contact.title">Une question ? Écrivez-moi</h2>
+          <p data-i18n="contact.lead">Décrivez-moi brièvement la situation (cours, difficultés, échéances) et je vous réponds rapidement.</p>
+          <p class="contact-email">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+            <span><span data-i18n="contact.emailLabel">Ou par courriel :</span>
+            <a id="email-link" data-user="zakary.gaillard" data-domain="outlook.com" href="#contact">zakary.gaillard [at] outlook.com</a></span>
+          </p>
+        </div>
+
+        <!-- Formspree : remplacer YOUR_FORM_ID par l'identifiant de votre formulaire -->
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nouvelle demande — site de tutorat">
+          <input type="hidden" name="langue" id="form-lang" value="fr">
+          <!-- Honeypot anti-spam : invisible pour les humains -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-gotcha">Ne pas remplir</label>
+            <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name"><span data-i18n="form.name">Nom</span> <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="f-name" name="nom" autocomplete="name" required aria-describedby="e-name">
+              <p class="error" id="e-name"></p>
+            </div>
+            <div class="field">
+              <label for="f-email"><span data-i18n="form.email">Courriel</span> <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+              <p class="error" id="e-email"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-phone"><span data-i18n="form.phone">Téléphone</span> <span class="optional" data-i18n="form.optional">(facultatif)</span></label>
+            <input type="tel" id="f-phone" name="telephone" autocomplete="tel" inputmode="tel">
+          </div>
+
+          <fieldset class="field" aria-describedby="e-role">
+            <legend><span data-i18n="form.role">Je suis</span> <span class="req" aria-hidden="true">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="profil" value="eleve" required> <span data-i18n="form.roleStudent">Élève ou étudiant</span></label>
+              <label class="choice"><input type="radio" name="profil" value="parent"> <span data-i18n="form.roleParent">Parent</span></label>
+            </div>
+            <p class="error" id="e-role"></p>
+          </fieldset>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-level"><span data-i18n="form.level">Niveau</span> <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-level" name="niveau" required aria-describedby="e-level">
+                <option value="" data-i18n="form.levelChoose">Choisir…</option>
+                <option value="universite" data-i18n="form.levelUni">Université</option>
+                <option value="cegep" data-i18n="form.levelCegep">Cégep</option>
+                <option value="secondaire" data-i18n="form.levelHs">Secondaire</option>
+                <option value="jeunes-8-14" data-i18n="form.levelKids">Jeunes de 8 à 14 ans</option>
+              </select>
+              <p class="error" id="e-level"></p>
+            </div>
+            <div class="field">
+              <label for="f-subject"><span data-i18n="form.subject">Matière ou cours</span> <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="f-subject" name="matiere" required aria-describedby="e-subject" placeholder="ex. : Calcul I, Java, maths SN" data-i18n-attr="placeholder:form.subjectPh">
+              <p class="error" id="e-subject"></p>
+            </div>
+          </div>
+
+          <fieldset class="field" aria-describedby="e-format">
+            <legend><span data-i18n="form.format">Format préféré</span> <span class="req" aria-hidden="true">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="format" value="en-personne" required> <span data-i18n="form.formatInPerson">En personne</span></label>
+              <label class="choice"><input type="radio" name="format" value="en-ligne"> <span data-i18n="form.formatOnline">En ligne</span></label>
+              <label class="choice"><input type="radio" name="format" value="peu-importe"> <span data-i18n="form.formatEither">Peu importe</span></label>
+            </div>
+            <p class="error" id="e-format"></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="f-message"><span data-i18n="form.message">Message</span> <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-message" name="message" rows="5" required aria-describedby="e-message"></textarea>
+            <p class="error" id="e-message"></p>
+          </div>
+
+          <p class="form-hint"><span class="req" aria-hidden="true">*</span> <span data-i18n="form.required">Champ obligatoire</span></p>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="form-submit" data-i18n="form.submit">Envoyer</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 10. FAQ -->
+    <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+          <h2 id="faq-title" data-i18n="faq.title">Questions fréquentes</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary data-i18n="faq.1.q">Où ont lieu les séances en personne ?</summary>
+            <p data-i18n="faq.1.a">Chez l'élève ou dans un lieu public à Montréal, comme une bibliothèque ou un café. Il n'y a aucuns frais de déplacement si c'est à moins de 45 minutes en transport en commun de la station Préfontaine. Si vous êtes plus loin, écrivez-moi et on trouvera une solution.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.2.q">Pouvez-vous faire mes travaux ?</summary>
+            <p data-i18n="faq.2.a">Non. J'explique et je guide, mais je ne fais pas les travaux notés à votre place. Par contre, je peux vous aider à comprendre la matière et la démarche pour que vous puissiez les réussir vous-même.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.3.q">Comment fonctionnent les questions par message ?</summary>
+            <p data-i18n="faq.3.a">Avec un forfait, vous pouvez m'envoyer de courtes questions par texto, WhatsApp ou Discord : une photo d'un exercice, un bogue, une notion. Je réponds en moins de 24 h, entre 9 h et 21 h (en moins de 12 h avec le forfait examen). Les questions plus longues sont reportées à la prochaine séance.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.4.q">Comment se fait le paiement ?</summary>
+            <p data-i18n="faq.4.a">Par virement Interac. Les forfaits se paient au début du mois et les séances à l'unité, après chaque séance.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.5.q">Un parent peut-il assister à la séance ?</summary>
+            <p data-i18n="faq.5.a">Oui, bien sûr. Les parents sont les bienvenus à la rencontre gratuite et aux séances, surtout avec les plus jeunes.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.6.q">Et si je dois annuler ?</summary>
+            <p data-i18n="faq.6.a">Prévenez-moi au moins 24 h à l'avance et on déplace la séance. Une annulation avec moins de 24 h de préavis est facturée.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.7.q">Aidez-vous à préparer les examens ?</summary>
+            <p data-i18n="faq.7.a">Oui. Le forfait examen comprend 2 séances de 2 h en 2 semaines et des questions prioritaires (réponse en 12 h) jusqu'à l'examen. Au secondaire, je prépare aussi aux examens du ministère.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.8.q">Donnez-vous des cours en anglais ?</summary>
+            <p data-i18n="faq.8.a">Oui. Je suis bilingue : les séances peuvent se faire en français ou en anglais, selon votre préférence.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11. Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-name">Zakary Gaillard-Duchassin — <span data-i18n="footer.tutoring">Tutorat</span></p>
+        <p class="muted">Montréal, QC</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#reserver" data-i18n="footer.book">Réserver une rencontre gratuite</a></li>
+        <li><a href="#contact" data-i18n="footer.contact">Formulaire de contact</a></li>
+      </ul>
+      <p class="muted footer-copy">© <span id="year">2026</span> Zakary Gaillard-Duchassin</p>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile booking button -->
+  <a class="btn btn-primary mobile-cta" id="mobile-cta" href="#reserver">
+    <svg class="icon" aria-hidden="true"><use href="#i-video"/></svg>
+    <span data-i18n="cta.mobile">Réserver la rencontre gratuite</span>
+  </a>
+</body>
+</html>
