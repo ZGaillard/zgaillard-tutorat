@@ -113,7 +113,7 @@
     "prices.hsHourly": "(<span data-price=\"session.hsHourly\"></span>/h)",
     "prices.kidsShort": "(or <span data-price=\"session.kidsShort\"></span> for 1.5 h)",
     "prices.inPersonNote": "<strong>In person (2 h, or 1.5 h for kids)</strong>: at the student's home or in a public place in Montréal (library, café). No travel fee within 45 minutes of Préfontaine metro station by public transit. Farther away? Get in touch.",
-    "prices.onlineNote": "<strong>Online (1 h)</strong>: on Zoom or Google Meet, with screen sharing and a whiteboard.",
+    "prices.onlineNote": "<strong>Online (1 h)</strong>: on Gather, an online teaching platform, with screen sharing and a whiteboard.",
     "prices.packagesTitle": "Monthly support packages",
     "prices.packagesLead": "2-hour in-person sessions, with questions by message between sessions included.",
     "prices.popular": "Most popular",
