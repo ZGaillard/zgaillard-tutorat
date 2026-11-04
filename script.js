@@ -23,7 +23,7 @@
   /* ---------- Textes anglais ---------- */
   var EN = {
     "meta.title": "Math & Computer Science Tutor in Montréal | Zakary Gaillard-Duchassin",
-    "meta.description": "Math and computer science tutoring in Montréal, from high school to university: programming, calculus, linear algebra, statistics, high school math and intro to coding for ages 8–14. In person or online. Free 15-min first meeting.",
+    "meta.description": "Math and computer science tutoring in Montréal, from high school to university: programming, calculus, linear algebra, statistics, high school math and intro to coding for ages 8–18. In person or online. Free 15-min first meeting.",
 
     "skip": "Skip to content",
     "brand.sub": "Math &amp; computer science tutoring",
@@ -45,7 +45,7 @@
 
     "hero.eyebrow": "Montréal · in person or online",
     "hero.title": "Math and computer science tutoring in Montréal, from high school to university",
-    "hero.sub": "Clear, step-by-step explanations to truly understand the material and walk into the exam with confidence. Also: intro to coding for ages 8–14.",
+    "hero.sub": "Clear, step-by-step explanations to truly understand the material and walk into the exam with confidence. Also: intro to coding for ages 8–18.",
     "badge.years": "5+ years of teaching",
     "badge.ta": "Teaching assistant at UdeM",
     "badge.gpa": "3.89/4.3 GPA",
@@ -82,7 +82,7 @@
     "subjects.hs.1": "Math CST, TS and SN",
     "subjects.hs.2": "Ministry exam preparation",
     "subjects.hs.3": "Study methods",
-    "subjects.kids.title": "Kids aged 8 to 14",
+    "subjects.kids.title": "Youth aged 8 to 18",
     "subjects.kids.1": "Intro to coding (Scratch, beginner Python)",
     "subjects.kids.2": "Video game design and logic",
     "subjects.kids.3": "A fun, project-based approach",
@@ -108,7 +108,7 @@
     "prices.colOnlineDur": "(1 h)",
     "prices.rowUni": "University &amp; cégep",
     "prices.rowHs": "High school",
-    "prices.rowKids": "Kids aged 8 to 14",
+    "prices.rowKids": "Youth aged 8 to 18",
     "prices.uniHourly": "(<span data-price=\"session.uniHourly\"></span>/h)",
     "prices.hsHourly": "(<span data-price=\"session.hsHourly\"></span>/h)",
     "prices.kidsShort": "(or <span data-price=\"session.kidsShort\"></span> for 1.5 h)",
@@ -125,6 +125,7 @@
     "prices.insteadOf": "instead of",
     "prices.examTag": "Before an exam",
     "prices.examName": "Exam package",
+    "prices.customNote": "<strong>Need a different pace?</strong> A custom package is always possible, with more or fewer sessions, billed by the hour. Let's talk about it during the free meeting.",
     "prices.examDesc": "2 in-person sessions of 2 h within 2 weeks + priority questions (reply within 12 h) until the exam",
 
     "rules.title": "Policies",
@@ -165,7 +166,7 @@
     "form.levelUni": "University",
     "form.levelCegep": "Cégep",
     "form.levelHs": "High school",
-    "form.levelKids": "Kids aged 8 to 14",
+    "form.levelKids": "Youth aged 8 to 18",
     "form.subject": "Subject or course",
     "form.subjectPh": "e.g. Calculus I, Java, Sec. 5 math",
     "form.format": "Preferred format",

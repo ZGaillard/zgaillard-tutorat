@@ -372,6 +372,14 @@ strong { font-weight: 700; }
 .ribbon-soft { background: var(--primary-soft); color: var(--primary); border: 1px solid var(--border); }
 .ribbon .icon { width: 1em; height: 1em; }
 
+.custom-note {
+  display: flex; gap: 12px; align-items: flex-start; margin-top: 24px;
+  padding: 16px 20px; border-radius: var(--radius-sm);
+  background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.custom-note .icon { color: var(--accent); margin-top: .2em; }
+.custom-note p { margin: 0; }
+
 /* ---------- Rules ---------- */
 .rules-box {
   background: var(--surface); border: 1px solid var(--border); border-left: 6px solid var(--primary);
