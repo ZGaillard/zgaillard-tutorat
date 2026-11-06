@@ -23,10 +23,16 @@
   /* ---------- Textes anglais ---------- */
   var EN = {
     "meta.title": "Math & Computer Science Tutor in Montréal | Zakary Gaillard-Duchassin",
+    // Aperçu Facebook / Messenger / X de en/ (voir tools/build-en.js)
+    "meta.ogTitle": "Math and computer science tutoring in Montréal",
+    "meta.ogDescription": "From high school to university, in person or online. Teaching assistant at UdeM. Free 15-min first meeting.",
+    "meta.twitterDescription": "From high school to university, in person or online. Free 15-min first meeting.",
+    "meta.ogImageAlt": "Zakary Gaillard-Duchassin — Math and computer science tutoring in Montréal",
     "meta.description": "Math and computer science tutoring in Montréal, from high school to university: programming, calculus, linear algebra, statistics, high school math and intro to coding for ages 8–18. In person or online. Free 15-min first meeting.",
 
     "skip": "Skip to content",
     "brand.sub": "Math &amp; computer science tutoring",
+    "brand.label": "Zakary Gaillard-Duchassin — Tutoring",
     "nav.label": "Main navigation",
     "nav.menu": "Open menu",
     "nav.menuClose": "Close menu",
@@ -198,7 +204,12 @@
 
     "footer.tutoring": "Tutoring",
     "footer.book": "Book a free meeting",
-    "footer.contact": "Contact form"
+    "footer.contact": "Contact form",
+    "footer.privacy": "Privacy",
+    "form.consent": "Your information is used only to reply to you. If the student is under 14, a parent must fill out the form. <a href=\"confidentialite.html\">Privacy policy</a>",
+
+    "privacy.meta.title": "Privacy policy | Zakary Gaillard-Duchassin — Tutoring",
+    "privacy.meta.description": "How personal information sent through the contact form and booking is collected, used and protected."
   };
 
   /* Messages générés par le script (FR et EN) */
@@ -212,6 +223,7 @@
       "form.success": "Merci ! Votre message a bien été envoyé. Je vous réponds rapidement.",
       "form.error": "Oups, le message n'a pas pu être envoyé. Réessayez dans un instant ou écrivez-moi directement à ",
       "form.invalid": "Veuillez corriger les champs indiqués.",
+      "form.mailto": "Votre logiciel de courriel s'ouvre avec votre message prérempli : il ne reste qu'à l'envoyer. Rien ne s'ouvre ? Écrivez-moi directement à ",
       "book.notReady": "Le calendrier de réservation sera bientôt disponible. En attendant, écrivez-moi avec le formulaire ci-dessous."
     },
     en: {
@@ -223,11 +235,23 @@
       "form.success": "Thank you! Your message has been sent. I'll get back to you quickly.",
       "form.error": "Oops, your message couldn't be sent. Please try again in a moment or email me directly at ",
       "form.invalid": "Please fix the fields indicated.",
+      "form.mailto": "Your email app is opening with your message pre-filled: just hit send. Nothing opened? Email me directly at ",
       "book.notReady": "The booking calendar will be available soon. In the meantime, send me a message with the form below."
     }
   };
 
+  // Utilisé par tools/build-en.js (Node) pour générer en/index.html
+  if (typeof document === "undefined") {
+    if (typeof module !== "undefined") module.exports = { EN: EN, PRICES: PRICES };
+    return;
+  }
+
   var STORAGE_KEY = "zgd-lang";
+  var root = document.documentElement;
+  var PAGE = root.getAttribute("data-page") || "home";
+  // Langue dans laquelle le HTML de cette page est écrit (en/index.html est généré en anglais)
+  var SOURCE_LANG = root.getAttribute("data-source-lang") || "fr";
+  var META = root.getAttribute("data-meta-prefix") || "meta";
   var FR = {};               // rempli au démarrage à partir du HTML
   var currentLang = "fr";
 
@@ -262,9 +286,9 @@
         FR[pair[1]] = el.getAttribute(pair[0]) || "";
       });
     });
-    FR["meta.title"] = document.title;
+    FR[META + ".title"] = document.title;
     var desc = $('meta[name="description"]');
-    FR["meta.description"] = desc ? desc.getAttribute("content") : "";
+    FR[META + ".description"] = desc ? desc.getAttribute("content") : "";
     FR["nav.menu"] = FR["nav.menu"] || "Ouvrir le menu";
   }
 
@@ -292,9 +316,9 @@
       });
     });
 
-    document.title = dict["meta.title"] || FR["meta.title"];
+    document.title = dict[META + ".title"] || FR[META + ".title"];
     var desc = $('meta[name="description"]');
-    if (desc) desc.setAttribute("content", dict["meta.description"] || FR["meta.description"]);
+    if (desc) desc.setAttribute("content", dict[META + ".description"] || FR[META + ".description"]);
 
     $all(".lang-btn").forEach(function (btn) {
       btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang") === currentLang));
@@ -303,13 +327,32 @@
     var formLang = $("#form-lang");
     if (formLang) formLang.value = currentLang;
 
+    updateLinks();
     renderPrices();
     updateMenuLabel();
     refreshErrors();
     setupEmail();
   }
 
+  /* Adresses des deux versions de l'accueil, selon la page où l'on est */
+  function homeUrl(lang) {
+    var base = SOURCE_LANG === "en" ? "../" : "./";
+    if (PAGE !== "home") base = "./";
+    return base + (lang === "en" ? "en/" : "");
+  }
+  function updateLinks() {
+    // Liens « retour à l'accueil » de la page de confidentialité
+    $all("[data-home-link]").forEach(function (a) { a.setAttribute("href", homeUrl(currentLang)); });
+    // Lien vers la confidentialité : garder la langue
+    $all('a[href^="confidentialite.html"], a[href^="../confidentialite.html"]').forEach(function (a) {
+      var base = SOURCE_LANG === "en" ? "../confidentialite.html" : "confidentialite.html";
+      a.setAttribute("href", base + (currentLang === "en" ? "?lang=en" : ""));
+    });
+  }
+
   function getInitialLang() {
+    // Page d'accueil : chaque langue a sa propre page (index.html et en/index.html)
+    if (PAGE === "home") return SOURCE_LANG;
     var fromUrl = null;
     try { fromUrl = new URLSearchParams(window.location.search).get("lang"); } catch (e) { /* vieux navigateur */ }
     if (fromUrl === "en" || fromUrl === "fr") return fromUrl;
@@ -320,16 +363,51 @@
     return "fr";
   }
 
-  function setLanguage(lang) {
-    applyLanguage(lang);
-    try { window.localStorage.setItem(STORAGE_KEY, currentLang); } catch (e) { /* stockage bloqué */ }
-    // Garde l'URL partageable : ?lang=en en anglais, rien en français
+  function saveLang(lang) {
+    try { window.localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* stockage bloqué */ }
+  }
+
+  // Autres pages (confidentialité) : l'URL garde ?lang=en pour rester partageable
+  function syncUrl() {
     try {
       var url = new URL(window.location.href);
       if (currentLang === "en") url.searchParams.set("lang", "en");
       else url.searchParams.delete("lang");
       window.history.replaceState(null, "", url.pathname + url.search + url.hash);
     } catch (e) { /* ignore */ }
+  }
+
+  // Section actuellement à l'écran, pour retomber au même endroit dans l'autre langue
+  function currentSectionHash() {
+    var hash = "";
+    $all("main section[id]").forEach(function (sec) {
+      if (sec.getBoundingClientRect().top <= 120) hash = sec.id === "top" ? "" : "#" + sec.id;
+    });
+    return hash;
+  }
+
+  // Ancien lien partagé (…/?lang=en) ou anglais choisi lors d'une visite précédente
+  function redirectHomeIfNeeded() {
+    if (PAGE !== "home" || SOURCE_LANG !== "fr") return false;
+    var wanted = null;
+    try { wanted = new URLSearchParams(window.location.search).get("lang"); } catch (e) { /* vieux navigateur */ }
+    if (wanted !== "en" && wanted !== "fr") {
+      try { wanted = window.localStorage.getItem(STORAGE_KEY); } catch (e) { /* stockage bloqué */ }
+    }
+    if (wanted !== "en") return false;
+    window.location.replace(homeUrl("en") + window.location.hash);
+    return true;
+  }
+
+  function setLanguage(lang) {
+    lang = lang === "en" ? "en" : "fr";
+    saveLang(lang);
+    if (PAGE === "home") {
+      if (lang !== SOURCE_LANG) window.location.href = homeUrl(lang) + currentSectionHash();
+      return;
+    }
+    applyLanguage(lang);
+    syncUrl();
   }
 
   /* ---------- Menu mobile ---------- */
@@ -368,16 +446,17 @@
   }
 
   /* ---------- Courriel (assemblé en JS pour limiter le pourriel) ---------- */
-  function setupEmail() {
-    var link = $("#email-link");
-    if (!link) return;
-    var addr = link.getAttribute("data-user") + "@" + link.getAttribute("data-domain");
-    link.href = "mailto:" + addr;
-    link.textContent = addr;
-  }
+  var EMAIL = ["zakary.gaillard", "outlook.com"];
   function emailAddress() {
     var link = $("#email-link");
-    return link ? link.getAttribute("data-user") + "@" + link.getAttribute("data-domain") : "";
+    return link ? link.getAttribute("data-user") + "@" + link.getAttribute("data-domain") : EMAIL.join("@");
+  }
+  function setupEmail() {
+    var addr = emailAddress();
+    $all("#email-link, .js-email").forEach(function (link) {
+      link.href = "mailto:" + addr;
+      link.textContent = addr;
+    });
   }
 
   /* ---------- Bouton mobile collant ---------- */
@@ -546,7 +625,7 @@
   function showStatus(state) {
     statusBox.hidden = false;
     statusBox.setAttribute("data-state", state);
-    statusBox.className = "form-status" + (state === "success" ? " is-success" : state === "sending" ? "" : " is-error");
+    statusBox.className = "form-status" + (state === "success" || state === "mailto" ? " is-success" : state === "sending" ? "" : " is-error");
     statusBox.textContent = "";
     if (state === "error") {
       statusBox.appendChild(document.createTextNode(t("form.error")));
@@ -555,15 +634,49 @@
       a.textContent = emailAddress();
       statusBox.appendChild(a);
       statusBox.appendChild(document.createTextNode("."));
+    } else if (state === "mailto") {
+      statusBox.appendChild(document.createTextNode(t("form.mailto")));
+      var m = document.createElement("a");
+      m.href = "mailto:" + emailAddress();
+      m.textContent = emailAddress();
+      statusBox.appendChild(m);
+      statusBox.appendChild(document.createTextNode("."));
     } else {
       statusBox.textContent = t("form." + state);
     }
+  }
+
+  /* Solution de rechange tant que Formspree n'est pas configuré */
+  function sendByEmail() {
+    function val(sel) { var el = $(sel, form); return el ? el.value.trim() : ""; }
+    function label(sel) {
+      var el = $(sel, form);
+      if (!el) return "";
+      if (el.tagName === "SELECT") return el.options[el.selectedIndex].text.trim();
+      var span = el.parentNode.querySelector("span");
+      return span ? span.textContent.trim() : el.value;
+    }
+    var rows = [
+      [t("form.name"), val("#f-name")],
+      [t("form.email"), val("#f-email")],
+      [t("form.phone"), val("#f-phone")],
+      [t("form.role"), label('input[name="profil"]:checked')],
+      [t("form.level"), label("#f-level")],
+      [t("form.subject"), val("#f-subject")],
+      [t("form.format"), label('input[name="format"]:checked')]
+    ].filter(function (r) { return r[1]; }).map(function (r) { return r[0] + " : " + r[1]; });
+    var body = rows.join("\n") + "\n\n" + val("#f-message");
+    var subject = $('input[name="_subject"]', form).value;
+    window.location.href = "mailto:" + emailAddress() +
+      "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    showStatus("mailto");
   }
 
   function setupForm() {
     form = $("#contact-form");
     statusBox = $("#form-status");
     if (!form) return;
+    form.noValidate = true; // sans JavaScript, la validation du navigateur reste active
     var submitBtn = $("#form-submit");
 
     // Revalide en direct une fois qu'on a tenté d'envoyer
@@ -582,6 +695,9 @@
 
       // Honeypot rempli : probablement un robot. On fait semblant que tout va bien.
       if ($("#f-gotcha").value) { showStatus("success"); form.reset(); return; }
+
+      // Formspree pas encore configuré : on ouvre le logiciel de courriel avec un message prérempli
+      if (form.action.indexOf("YOUR_FORM_ID") !== -1) { sendByEmail(); return; }
 
       if (!window.fetch || !window.FormData) { form.submit(); return; }
 
@@ -612,10 +728,12 @@
 
   /* ---------- Démarrage ---------- */
   function init() {
+    if (redirectHomeIfNeeded()) return;
     captureFrench();
     setupMenu();
     setupForm();
     applyLanguage(getInitialLang());
+    if (PAGE !== "home") syncUrl();
 
     $all(".lang-btn").forEach(function (btn) {
       btn.addEventListener("click", function () { setLanguage(btn.getAttribute("data-lang")); });

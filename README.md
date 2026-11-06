@@ -1,14 +1,29 @@
 # Site de tutorat — Zakary Gaillard-Duchassin
 
-Site d'une page, bilingue (français par défaut, anglais avec le bouton FR/EN ou le lien `?lang=en`).
-HTML + CSS + JavaScript simples, sans framework ni étape de compilation : GitHub Pages sert les fichiers tels quels.
+Site d'une page, bilingue : français à l'adresse principale, anglais à `…/en/` (le bouton FR/EN passe de l'une à l'autre).
+HTML + CSS + JavaScript simples, sans framework : GitHub Pages sert les fichiers tels quels.
 
 ```
-index.html        Contenu (texte FRANÇAIS) et structure
-styles.css        Mise en page et couleurs (variables en haut du fichier)
-script.js         Prix, texte ANGLAIS, bouton de langue, formulaire, calendrier
-assets/           Photo, favicon, image d'aperçu pour Facebook
+index.html             Contenu (texte FRANÇAIS) et structure
+en/index.html          Version ANGLAISE — générée automatiquement, ne pas modifier à la main
+styles.css             Mise en page et couleurs (variables en haut du fichier)
+script.js              Prix, texte ANGLAIS, bouton de langue, formulaire, calendrier
+confidentialite.html   Politique de confidentialité (FR et EN dans le même fichier)
+404.html               Page « introuvable »
+robots.txt, sitemap.xml  Pour Google
+tools/build-en.js      Génère en/index.html à partir de index.html et script.js
+assets/                Photo, favicon, image d'aperçu pour Facebook, police Inter
 ```
+
+> **Après chaque modification de `index.html` ou de `script.js`, lancez :**
+> ```bash
+> node tools/build-en.js
+> ```
+> puis incluez `en/index.html` dans le commit. Sinon la page anglaise reste sur l'ancienne version.
+> Un test automatique sur GitHub (onglet *Actions*) vous avertit si vous l'avez oublié.
+> Le script signale aussi les textes anglais manquants dans `script.js`.
+
+Pourquoi une page anglaise séparée ? Facebook, Kijiji et Google lisent le HTML sans exécuter le JavaScript : avec une vraie page `/en/`, un lien partagé en anglais affiche un aperçu en anglais.
 
 **Voir le site sur votre ordinateur :**
 
@@ -26,7 +41,7 @@ Cal.com est un outil de prise de rendez-vous gratuit (comme Calendly). Les visit
 
 1. Créez un compte gratuit sur <https://cal.com/signup> et choisissez votre nom d'utilisateur (ex. : `zgaillard`).
 2. **Connectez votre agenda** : *Settings → Calendars → Add calendar* (Outlook ou Google). Ainsi, Cal.com ne proposera jamais un moment où vous êtes déjà occupé.
-3. **Vidéo** : *Apps* → installez Google Meet ou Zoom (ou gardez *Cal Video*, intégré et gratuit).
+3. **Vidéo** : gardez *Cal Video* (intégré et gratuit), ou mettez le lien de votre espace Gather comme lieu de la rencontre (*Location → Link meeting*).
 4. **Disponibilités** : *Availability* → indiquez vos heures, fuseau horaire *America/Toronto*.
 5. **Type d'événement** : *Event Types → New*
    - Titre : `Rencontre gratuite 15 min` ; lien (slug) : `rencontre-15min` ; durée : 15 minutes.
@@ -81,7 +96,7 @@ Après 1 à 2 minutes, l'adresse publique s'affiche en haut de cette page.
 1. Achetez un domaine (ex. chez Namecheap, Porkbun, Cloudflare : environ 15 $/an).
 2. GitHub : *Settings → Pages → Custom domain* → entrez le domaine → *Save*, puis cochez *Enforce HTTPS* quand c'est possible.
 3. Chez le registraire, ajoutez les enregistrements DNS indiqués par GitHub (4 enregistrements `A` vers `185.199.108.153`, `.109.153`, `.110.153`, `.111.153`, et un `CNAME` `www` → `zgaillard.github.io`).
-4. Dans `index.html`, remplacez `https://zgaillard.github.io/zgaillard-tutorat/` par le nouveau domaine (balises `canonical`, `hreflang`, `og:url`, `og:image`, `twitter:image`).
+4. Remplacez partout `https://zgaillard.github.io/zgaillard-tutorat/` par le nouveau domaine : `index.html` (balises `canonical`, `hreflang`, `og:url`, `og:image`, `twitter:image`, bloc `ld+json`), `tools/build-en.js` (constante `SITE`), `404.html`, `robots.txt` et `sitemap.xml`. Relancez ensuite `node tools/build-en.js`.
 
 ## 5. Modifier les prix et les textes
 
@@ -89,14 +104,17 @@ Après 1 à 2 minutes, l'adresse publique s'affiche en haut de cette page.
 |---|---|
 | **Un prix** | `script.js`, l'objet `PRICES` tout en haut. Le format (« 100 $ » en français, « $100 » en anglais) est automatique. |
 | **Un texte en français** | `index.html` : cherchez la phrase et modifiez-la directement. |
-| **Un texte en anglais** | `script.js`, l'objet `EN` : la clé est la même que l'attribut `data-i18n="..."` de l'élément dans `index.html`. |
+| **Un texte en anglais** | `script.js`, l'objet `EN` : la clé est la même que l'attribut `data-i18n="..."` de l'élément dans `index.html`. Puis `node tools/build-en.js`. |
+| La politique de confidentialité | `confidentialite.html` : le texte français et le texte anglais sont l'un sous l'autre. Changez aussi la date « Dernière mise à jour ». |
 | La photo | Mettez votre photo dans `assets/photo.jpg` (portrait 4:5, environ 800 × 1000 px, moins de 200 Ko), puis dans `index.html` remplacez `assets/photo-placeholder.svg` par `assets/photo.jpg`. |
 | L'adresse courriel affichée | `index.html`, l'élément `id="email-link"` : attributs `data-user` et `data-domain`. |
 | Les couleurs | `styles.css`, les variables `--primary`, `--accent`, etc. en haut (et la section `prefers-color-scheme: dark` pour le mode sombre). |
 | Titre et description Google | `index.html` (`<title>`, `meta description`) et `script.js` (`meta.title`, `meta.description` pour l'anglais). |
 | Ajouter une question à la FAQ | Copiez un bloc `<details>` dans `index.html`, donnez-lui de nouvelles clés `data-i18n` (ex. `faq.9.q`, `faq.9.a`) et ajoutez ces clés en anglais dans `EN`. |
 
-Note : les montants écrits dans `index.html` ne servent que si JavaScript est désactivé. Ce sont ceux de `PRICES` qui s'affichent normalement.
+Note : les montants écrits dans `index.html` ne servent que si JavaScript est désactivé. Ce sont ceux de `PRICES` qui s'affichent normalement (et que `tools/build-en.js` écrit dans la page anglaise).
+
+**Tant que Formspree n'est pas configuré** (`YOUR_FORM_ID` encore présent), le formulaire ouvre le logiciel de courriel du visiteur avec un message prérempli au lieu d'afficher une erreur.
 
 ## 6. Liste de vérification avant de partager le lien
 
@@ -104,9 +122,11 @@ Note : les montants écrits dans `index.html` ne servent que si JavaScript est d
 - [ ] La vraie photo est en place.
 - [ ] Sur **téléphone** : le menu ☰ s'ouvre et se ferme, le bouton « Réserver » en bas apparaît en défilant, rien ne déborde sur le côté.
 - [ ] Bouton **FR / EN** : tout le texte change, y compris les prix (« 100 $ » ↔ « $100 ») ; le choix est conservé en rechargeant la page.
-- [ ] Le lien `https://zgaillard.github.io/zgaillard-tutorat/?lang=en` ouvre le site en anglais.
+- [ ] Le lien `https://zgaillard.github.io/zgaillard-tutorat/en/` ouvre le site en anglais (les anciens liens `?lang=en` y redirigent).
+- [ ] `node tools/build-en.js --check` répond « en/index.html est à jour ».
+- [ ] Le lien « Confidentialité » du pied de page et celui sous le formulaire fonctionnent, dans les deux langues.
 - [ ] **Réservation** : le calendrier s'affiche ; faites une vraie réservation test et vérifiez l'invitation dans votre agenda, puis annulez-la.
 - [ ] **Formulaire** : envoyer vide affiche les erreurs ; un vrai envoi affiche « Merci ! » et le message arrive dans votre boîte courriel.
 - [ ] Les liens du menu mènent aux bonnes sections.
 - [ ] Mode sombre (réglage du téléphone) : tout reste lisible.
-- [ ] L'aperçu Facebook (outil de débogage ci-dessus) montre la bonne image et le bon titre.
+- [ ] L'aperçu Facebook (outil de débogage ci-dessus) montre la bonne image et le bon titre, en français pour l'adresse principale **et en anglais pour `/en/`**.

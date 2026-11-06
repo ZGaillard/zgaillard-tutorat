@@ -3,6 +3,15 @@
    Mobile-first. Couleurs définies comme variables CSS ci-dessous.
    ========================================================================== */
 
+/* Police Inter hébergée sur le site (aucune requête vers Google) — licence : assets/fonts/OFL.txt */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("assets/fonts/inter-latin.woff2") format("woff2");
+}
+
 :root {
   --primary: #000059;          /* bleu marine (CV) */
   --primary-hover: #1a1a7a;
@@ -507,3 +516,14 @@ fieldset.is-invalid .choice { border-color: var(--error); }
 }
 .mobile-cta.is-hidden { transform: translateY(150%); opacity: 0; pointer-events: none; }
 @media (min-width: 768px) { .mobile-cta { display: none; } }
+
+/* ---------- Politique de confidentialité ---------- */
+html[lang^="en"] .only-fr, html[lang^="fr"] .only-en { display: none; }
+.legal h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: .25rem; }
+.legal h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; }
+.legal ul { padding-left: 1.25rem; }
+.legal li { margin-bottom: .4rem; }
+
+/* ---------- Mention sous le formulaire ---------- */
+.form-consent { font-size: .85rem; color: var(--muted); margin: 0 0 16px; }
+.form-consent a { color: var(--link); }

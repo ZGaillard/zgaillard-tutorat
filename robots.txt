@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zgaillard.github.io/zgaillard-tutorat/sitemap.xml

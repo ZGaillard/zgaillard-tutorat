@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr-CA">
+<html lang="fr-CA" data-page="home" data-source-lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://zgaillard.github.io/zgaillard-tutorat/">
   <link rel="alternate" hreflang="fr-CA" href="https://zgaillard.github.io/zgaillard-tutorat/">
-  <link rel="alternate" hreflang="en-CA" href="https://zgaillard.github.io/zgaillard-tutorat/?lang=en">
+  <link rel="alternate" hreflang="en-CA" href="https://zgaillard.github.io/zgaillard-tutorat/en/">
   <link rel="alternate" hreflang="x-default" href="https://zgaillard.github.io/zgaillard-tutorat/">
 
   <!-- Open Graph (Facebook, Messenger, WhatsApp…) -->
@@ -37,11 +37,31 @@
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Zakary Gaillard-Duchassin — Tutorat maths et informatique",
+    "description": "Tutorat en maths et en informatique à Montréal, du secondaire à l'université, en personne ou en ligne.",
+    "url": "https://zgaillard.github.io/zgaillard-tutorat/",
+    "image": "https://zgaillard.github.io/zgaillard-tutorat/assets/og-image.png",
+    "areaServed": { "@type": "City", "name": "Montréal" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Montréal", "addressRegion": "QC", "addressCountry": "CA" },
+    "availableLanguage": ["fr", "en"],
+    "priceRange": "35 $ – 360 $",
+    "founder": {
+      "@type": "Person",
+      "name": "Zakary Gaillard-Duchassin",
+      "jobTitle": "Tuteur en maths et en informatique",
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Université de Montréal" },
+      "knowsLanguage": ["fr", "en", "es"]
+    },
+    "knowsAbout": ["Programmation Java", "Python", "Structures de données", "Algorithmique", "SQL", "Calcul différentiel et intégral", "Algèbre linéaire", "Statistiques", "Mathématiques du secondaire", "Scratch"]
+  }
+  </script>
 </head>
 <body>
   <!-- Icon sprite (inline SVG, no library) -->
@@ -74,7 +94,7 @@
   <!-- 1. Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Zakary Gaillard-Duchassin — Tutorat">
+      <a class="brand" href="#top" aria-label="Zakary Gaillard-Duchassin — Tutorat" data-i18n-attr="aria-label:brand.label">
         <span class="brand-mark" aria-hidden="true">ZGD</span>
         <span class="brand-text">
           <span class="brand-name"><span>Zakary</span> <span>Gaillard-Duchassin</span></span>
@@ -397,19 +417,19 @@
           <h2 id="book-title" data-i18n="book.title">Réservez votre rencontre gratuite de 15 minutes</h2>
           <p data-i18n="book.lead">Choisissez un moment qui vous convient. On en profite pour parler de vos besoins et voir si je suis la bonne personne pour vous aider.</p>
         </div>
-        <!-- Lien Cal.com : remplacer YOUR-USERNAME/rencontre-15min partout dans ce fichier -->
+        <!-- Lien Cal.com (3 endroits dans ce fichier) : zgaillard/15min -->
         <div class="cal-wrap">
-          <div id="cal-inline" class="cal-inline" data-cal-link="YOUR-USERNAME/rencontre-15min">
+          <div id="cal-inline" class="cal-inline" data-cal-link="zgaillard/15min">
             <p class="cal-loading" data-i18n="book.loading">Chargement du calendrier…</p>
           </div>
           <div class="cal-fallback" id="cal-fallback" hidden>
             <p data-i18n="book.fallbackError">Le calendrier n'a pas pu s'afficher ici.</p>
-            <a class="btn btn-primary" href="https://cal.com/YOUR-USERNAME/rencontre-15min" target="_blank" rel="noopener" data-i18n="book.fallbackBtn">Ouvrir la page de réservation</a>
+            <a class="btn btn-primary" href="https://cal.com/zgaillard/15min" target="_blank" rel="noopener" data-i18n="book.fallbackBtn">Ouvrir la page de réservation</a>
           </div>
         </div>
         <p class="cal-alt">
           <span data-i18n="book.altText">Le calendrier ne s'affiche pas ?</span>
-          <a href="https://cal.com/YOUR-USERNAME/rencontre-15min" target="_blank" rel="noopener" data-i18n="book.altLink">Réserver directement sur Cal.com</a>
+          <a href="https://cal.com/zgaillard/15min" target="_blank" rel="noopener" data-i18n="book.altLink">Réserver directement sur Cal.com</a>
           <span data-i18n="book.altOr">ou</span>
           <a href="#contact" data-i18n="book.altContact">écrivez-moi</a>.
         </p>
@@ -430,8 +450,8 @@
           </p>
         </div>
 
-        <!-- Formspree : remplacer YOUR_FORM_ID par l'identifiant de votre formulaire -->
-        <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <!-- Formspree : identifiant du formulaire mkjjedok -->
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mkjjedok" method="POST">
           <input type="hidden" name="_subject" value="Nouvelle demande — site de tutorat">
           <input type="hidden" name="langue" id="form-lang" value="fr">
           <!-- Honeypot anti-spam : invisible pour les humains -->
@@ -503,6 +523,7 @@
           </div>
 
           <p class="form-hint"><span class="req" aria-hidden="true">*</span> <span data-i18n="form.required">Champ obligatoire</span></p>
+          <p class="form-consent" data-i18n="form.consent">Vos renseignements servent uniquement à vous répondre. Si l'élève a moins de 14 ans, le formulaire doit être rempli par un parent. <a href="confidentialite.html">Politique de confidentialité</a></p>
           <button type="submit" class="btn btn-primary btn-lg btn-block" id="form-submit" data-i18n="form.submit">Envoyer</button>
           <div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
         </form>
@@ -564,6 +585,7 @@
       <ul class="footer-links">
         <li><a href="#reserver" data-i18n="footer.book">Réserver une rencontre gratuite</a></li>
         <li><a href="#contact" data-i18n="footer.contact">Formulaire de contact</a></li>
+        <li><a href="confidentialite.html" data-i18n="footer.privacy">Confidentialité</a></li>
       </ul>
       <p class="muted footer-copy">© <span id="year">2026</span> Zakary Gaillard-Duchassin</p>
     </div>

@@ -1,0 +1,13 @@
+# Vérifie que en/index.html a été régénéré après une modification de index.html ou script.js.
+# Si ce test échoue : lancez « node tools/build-en.js », puis faites un commit du résultat.
+name: Vérifier la page anglaise
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/build-en.js --check
